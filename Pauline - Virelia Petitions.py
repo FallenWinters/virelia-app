@@ -2,3 +2,4 @@
 
 import _tkinter as tk
 
+app = 10
