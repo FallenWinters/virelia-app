@@ -1,5 +1,10 @@
 '''Virelia Petitions Page'''
 
-import _tkinter as tk
+import tkinter as tk
 
-app = 10
+window = tk.Tk()
+window.title("Virelia - Petitions")
+window.geometry("320x568")
+
+
+window.mainloop()
