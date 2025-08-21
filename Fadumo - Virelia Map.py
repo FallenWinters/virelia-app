@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkintermapview import TkinterMapView
+from tkintermapview import TkinterMapView #this is how you change the code :)
 
 window = tk.Tk()
 window.title("Virelia - Map")
@@ -11,3 +11,4 @@ map_widget = TkinterMapView(window, width= 320, height= 400, corner_radius = 0)
 map_widget.set_position(43.6532,-79.3832)
 map_widget.place(relx=0.5, rely=0.5, anchor="center")
 window.mainloop()
+
