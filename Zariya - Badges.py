@@ -3,12 +3,12 @@ from tkinter import ttk
 
 def assign_badge(count):
     if count >= 10:
-        return "gold badge: signed 10 petitions"
+        return "gold badge: signed 10 petitions", "gold"
     elif count >= 5:
-        return "silver badge: signed 5 petitions"
+        return "silver badge: signed 5 petitions", "silver"
     elif count >= 1:
-        return "bronze badge: signed 1 petition"
-    return "no badge: no petitions signed"
+        return "bronze badge: signed 1 petition", "brown"
+    return "no badge: no petitions signed", "black"
 
 window = tk.Tk()
 window.title("Virelia")
@@ -24,11 +24,21 @@ notebook.add(tab_home, text="Home")
 notebook.add(tab_create, text="Create Petition")
 notebook.pack(expand=True, fill="both")
 
-badge_label = tk.Label(tab_home, text=assign_badge(petition_count), font=("Arial", 12))
+badge_text, badge_color = assign_badge(petition_count)
+badge_label = tk.Label(tab_home, text=badge_text, fg=badge_color, font=("Arial", 12))
 badge_label.pack(pady=20)
 
 count_label = tk.Label(tab_home, text=f"Petitions Signed: {petition_count}")
 count_label.pack()
+
+def open_other_page():
+    new_window = tk.Toplevel(window)
+    new_window.title("Other Page")
+    new_window.geometry("320x568")
+    tk.Label(new_window, text="Welcome to the Other Page!").pack(pady=20)
+    tk.Button(new_window, text="Close", command=new_window.destroy).pack(pady=10)
+
+tk.Button(tab_home, text="Go to Other Page", command=open_other_page).pack(pady=10)
 
 tk.Label(tab_create, text="Subject").pack(pady=5)
 subject = tk.Entry(tab_create)
@@ -42,7 +52,9 @@ def submit_petition():
     global petition_count
     if subject.get() and desc.get("1.0", tk.END).strip():
         petition_count += 1
-        badge_label.config(text=assign_badge(petition_count))
+        # Update badge text and color
+        text, color = assign_badge(petition_count)
+        badge_label.config(text=text, fg=color)
         count_label.config(text=f"Petitions Signed: {petition_count}")
         subject.delete(0, tk.END)
         desc.delete("1.0", tk.END)
