@@ -18,7 +18,7 @@ window.geometry("320x568")
 window.resizable(False, False)
 
 petition_count = 0
-]
+
 notebook = ttk.Notebook(window)
 
 # Home tab (light orange)
@@ -58,3 +58,4 @@ def submit_petition():
 tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
 
 window.mainloop()
+
