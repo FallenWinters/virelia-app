@@ -62,4 +62,3 @@ def submit_petition():
 tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
 
 window.mainloop()
-
