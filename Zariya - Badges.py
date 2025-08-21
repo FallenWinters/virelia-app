@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 
-
 def assign_badge(count):
     if count >= 10:
         return "gold badge: signed 10 petitions"
@@ -11,7 +10,6 @@ def assign_badge(count):
         return "bronze badge: signed 1 petition"
     return "no badge: no petitions signed"
 
-
 window = tk.Tk()
 window.title("Virelia")
 window.geometry("320x568")
@@ -20,29 +18,23 @@ window.resizable(False, False)
 petition_count = 0
 
 notebook = ttk.Notebook(window)
-
-# Home tab (light orange)
-tab_home = tk.Frame(notebook, bg="peachpuff")  
-# Create Petition tab (baby pink)
-tab_create = tk.Frame(notebook, bg="pink")      
-
+tab_home = tk.Frame(notebook)
+tab_create = tk.Frame(notebook)
 notebook.add(tab_home, text="Home")
 notebook.add(tab_create, text="Create Petition")
 notebook.pack(expand=True, fill="both")
 
-badge_label = tk.Label(tab_home, text=assign_badge(petition_count),
-                       font=("Arial", 12), bg="peachpuff")
+badge_label = tk.Label(tab_home, text=assign_badge(petition_count), font=("Arial", 12))
 badge_label.pack(pady=20)
 
-count_label = tk.Label(tab_home, text=f"Petitions Signed: {petition_count}",
-                       bg="peachpuff")
+count_label = tk.Label(tab_home, text=f"Petitions Signed: {petition_count}")
 count_label.pack()
 
-tk.Label(tab_create, text="Subject", bg="pink").pack(pady=5)
+tk.Label(tab_create, text="Subject").pack(pady=5)
 subject = tk.Entry(tab_create)
 subject.pack()
 
-tk.Label(tab_create, text="Description", bg="pink").pack(pady=5)
+tk.Label(tab_create, text="Description").pack(pady=5)
 desc = tk.Text(tab_create, height=4, width=25)
 desc.pack()
 
@@ -58,4 +50,3 @@ def submit_petition():
 tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
 
 window.mainloop()
-
