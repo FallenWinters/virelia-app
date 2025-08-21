@@ -35,9 +35,8 @@ desc = tk.Text(tab_create, height=4, width=25)
 desc.pack()
 
 def submit_petition():
-    nonlocal subject, desc
+    global petition_count
     if subject.get() and desc.get("1.0", tk.END).strip():
-        global petition_count
         petition_count += 1
         badge_label.config(text=assign_badge(petition_count))
         count_label.config(text=f"Petitions Signed: {petition_count}")
@@ -47,3 +46,4 @@ def submit_petition():
 tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
 
 window.mainloop()
+
