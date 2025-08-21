@@ -3,9 +3,9 @@ from tkinter import ttk
 
 def assign_badge(count):
     if count >= 10:
-        return "gold badge: signed 10 petitions", "gold"
+        return "gold badge: signed 10 petitions", "yellow"
     elif count >= 5:
-        return "silver badge: signed 5 petitions", "silver"
+        return "silver badge: signed 5 petitions", "gray"
     elif count >= 1:
         return "bronze badge: signed 1 petition", "brown"
     return "no badge: no petitions signed", "black"
@@ -62,3 +62,4 @@ def submit_petition():
 tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
 
 window.mainloop()
+
