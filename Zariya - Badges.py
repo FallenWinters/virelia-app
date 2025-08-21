@@ -8,7 +8,7 @@ def assign_badge(count):
     return "no badge: no petitions signed", "black"
 
 def say_hello():
-    badge_label.config(text="Hello! Keep signing petitions!", fg="red")
+    badge_label.config(text="Hello! Please keep signing petitions!", fg="red")
 
 window = tk.Tk()
 window.title("Virelia")
