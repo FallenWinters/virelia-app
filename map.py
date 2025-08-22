@@ -3,7 +3,8 @@ import tkinter as tk
 from tkintermapview import TkinterMapView
 
 class VireliaMapApp(tk.Frame):
-    def __init__(self, window):
+    def __init__(self, stage, main):
+        super().__init__(stage, bg=white)
         self.window = window
         self.window.title("Virelia - Map")
         self.window.geometry("320x568")
@@ -44,4 +45,5 @@ if __name__ == "__main__":
     window = tk.Tk()
     app = VireliaMapApp(window)
     window.mainloop()
+
 
