@@ -6,12 +6,15 @@ class BadgesPage(tk.Frame):
         super().__init__(stage, bg="pink")
         self.title("Virelia")
         self.resizable(False, False)
-    
+
+        self.content = main
+
         self.petition_count = 0
         self.create_notebook()
         self.create_label()
         self.create_button()
         self.create_badge()
+        self.create_footer()
 
     def assign_badge(self):
         if self.petition_count >= 10:
@@ -25,13 +28,13 @@ class BadgesPage(tk.Frame):
     def create_notebook(self):
         self.notebook = ttk.Notebook(self)
         self.tab_home = tk.Frame(self.notebook, bg="pink")
-        self.tab_create = tk.Frame(self.notebook, bg="pink")  # fixed missing comma
+        self.tab_create = tk.Frame(self.notebook, bg="pink")
         self.notebook.add(self.tab_home, text="Home")
         self.notebook.add(self.tab_create, text="Create Petition")
         self.notebook.pack(expand=True, fill="both")
         
     def create_badge(self):
-        badge_text, badge_color = self.assign_badge()  # use self.assign_badge()
+        badge_text, badge_color = self.assign_badge()
         self.badge_label = tk.Label(self.tab_home, text=badge_text, fg=badge_color, bg="pink", font=("Arial", 12))
         self.badge_label.pack(pady=20)
         
@@ -58,3 +61,13 @@ class BadgesPage(tk.Frame):
 
     def create_button(self):
         tk.Button(self.tab_create, text="Submit", command=self.submit_petition).pack(pady=10)
+
+    def create_footer(self):
+        self.footer = tk.Frame(self, bg="#e84393", height=60)
+        self.footer.pack(side="bottom", fill="x")
+
+        buttons = ["Home", "Map", "Petition", "Badges", "Help"]
+        for name in buttons:
+            btn = tk.Button(self.footer, text=name, bg="#fab1a0", fg="black",
+                            font=("Arial", 10, "bold"), height=2, width=8)
+            btn.pack(side="left", expand=True, padx=5, pady=10)
