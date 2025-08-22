@@ -17,6 +17,7 @@ window.resizable(False, False)
 
 petition_count = 0
 
+# Notebook with two tabs
 notebook = ttk.Notebook(window)
 tab_home = tk.Frame(notebook)
 tab_create = tk.Frame(notebook)
@@ -31,15 +32,6 @@ badge_label.pack(pady=20)
 count_label = tk.Label(tab_home, text=f"Petitions Signed: {petition_count}")
 count_label.pack()
 
-def open_other_page():
-    new_window = tk.Toplevel(window)
-    new_window.title("Other Page")
-    new_window.geometry("320x568")
-    tk.Label(new_window, text="Welcome to the other page!").pack(pady=20)
-    tk.Button(new_window, text="Close", command=new_window.destroy).pack(pady=10)
-
-tk.Button(tab_home, text="Go to other page", command=open_other_page).pack(pady=10)
-
 tk.Label(tab_create, text="Subject").pack(pady=5)
 subject = tk.Entry(tab_create)
 subject.pack()
@@ -52,7 +44,6 @@ def submit_petition():
     global petition_count
     if subject.get() and desc.get("1.0", tk.END).strip():
         petition_count += 1
-    
         text, color = assign_badge(petition_count)
         badge_label.config(text=text, fg=color)
         count_label.config(text=f"Petitions Signed: {petition_count}")
