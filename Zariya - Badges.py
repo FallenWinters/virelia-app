@@ -52,7 +52,7 @@ def submit_petition():
     global petition_count
     if subject.get() and desc.get("1.0", tk.END).strip():
         petition_count += 1
-        # Update badge text and color
+    
         text, color = assign_badge(petition_count)
         badge_label.config(text=text, fg=color)
         count_label.config(text=f"Petitions Signed: {petition_count}")
