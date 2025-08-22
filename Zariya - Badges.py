@@ -60,3 +60,4 @@ class BadgesPage (tk.Frame):
             self.desc.delete("1.0", tk.END)
     def create_button(self):
         tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
+
