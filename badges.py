@@ -4,8 +4,6 @@ from tkinter import ttk
 class BadgesPage(tk.Frame):
     def __init__(self, stage, main):
         super().__init__(stage, bg="pink")
-        self.title("Virelia")
-        self.resizable(False, False)
 
         self.content = main
 
