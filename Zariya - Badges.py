@@ -35,10 +35,10 @@ def open_other_page():
     new_window = tk.Toplevel(window)
     new_window.title("Other Page")
     new_window.geometry("320x568")
-    tk.Label(new_window, text="Welcome to the Other Page!").pack(pady=20)
+    tk.Label(new_window, text="Welcome to the other page!").pack(pady=20)
     tk.Button(new_window, text="Close", command=new_window.destroy).pack(pady=10)
 
-tk.Button(tab_home, text="Go to Other Page", command=open_other_page).pack(pady=10)
+tk.Button(tab_home, text="Go to other page", command=open_other_page).pack(pady=10)
 
 tk.Label(tab_create, text="Subject").pack(pady=5)
 subject = tk.Entry(tab_create)
@@ -62,3 +62,4 @@ def submit_petition():
 tk.Button(tab_create, text="Submit", command=submit_petition).pack(pady=10)
 
 window.mainloop()
+
